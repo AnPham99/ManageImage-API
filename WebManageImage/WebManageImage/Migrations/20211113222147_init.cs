@@ -26,8 +26,10 @@ namespace WebManageImage.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -173,7 +175,7 @@ namespace WebManageImage.Migrations
                 {
                     ImageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Desciption = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     DateCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -261,8 +263,8 @@ namespace WebManageImage.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3d247859-11f4-41cd-ba94-4e7ef522fdbe", "738cef5d-5204-4312-b3a6-6e99a4b17d7b", "User", "USER" },
-                    { "c4c95195-5446-4642-862b-ae4b54e18926", "abb29884-46ee-4a8c-a67a-d969b805cc95", "Admin", "ADMIN" }
+                    { "6923ad75-eda2-4e83-ac05-57f8a4a511b4", "11047f1c-9fb8-4452-96c3-8fc2ad9c1d3e", "User", "USER" },
+                    { "63620d8f-3263-4c1f-a9c2-beb8fe9ce25a", "beafcf59-5029-44ad-98b4-4d9c74c921e9", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -283,18 +285,18 @@ namespace WebManageImage.Migrations
                 columns: new[] { "ImageId", "CategoryId", "CommentCount", "DateCreate", "Desciption", "ImageStatus", "IsApproval", "IsDeny", "LikeCount", "Name", "Url", "UserId", "UserName", "ViewsCount" },
                 values: new object[,]
                 {
-                    { 2, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rừng nhiệt đới với những tán cây xanh mát đang phát triển vào mùa mưa", true, true, false, 24, "Rừng nhiệt đới", "../../assets/Img/rungnhietdoi.jpeg", null, "Ân Phạm", 36 },
-                    { 5, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hoàng hôn đang buông xuống vào buổi chiều trông thật đẹp", true, true, false, 27, "Hoàng hôn", "../../assets/Img/hoanghon.jpeg", null, "Ân Phạm", 37 },
-                    { 8, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dòng sông quê em lúc nào cũng mênh mông con nước, cá tôm rất nhiều", true, true, false, 54, "Dòng sông quê em", "../../assets/Img/dongsongqueem.jpeg", null, "Ân Phạm", 77 },
-                    { 10, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vịnh Hạ Long một địa danh là di sản văn hóa và kì quan thiên nhiên của Việt Nam", true, true, false, 88, "Vịnh Hạ Long", "../../assets/Img/vinhhalong.jpeg", null, "Ân Phạm", 134 },
-                    { 11, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vịnh Hạ Long một địa danh là di sản văn hóa và kì quan thiên nhiên của Việt Nam", true, true, false, 18, "Sa mạc Sahara", "../../assets/Img/sahara.jpeg", null, "Ân Phạm", 72 },
-                    { 3, 2, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cô gái miền tây trong chiếc áo bà ba thước tha", true, true, false, 46, "Con gái miền tây", "../../assets/Img/congaimientay.jpeg", null, "Ân Phạm", 55 },
-                    { 1, 3, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chó corgi đang chơi đùa ngoài vườn", true, true, false, 48, "Chó Corgi", "../../assets/Img/chocogri.jpeg", null, "Ân Phạm", 61 },
-                    { 4, 3, 5, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vẻ mặt chú mèo trông ngây thơ khi đòi ăn", true, true, false, 109, "Mèo", "../../assets/Img/meo.jpeg", null, "Ân Phạm", 111 },
-                    { 7, 3, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chim cánh cụt tập trung theo đàn nghỉ mát trên bờ biển", true, true, false, 23, "Chim cánh cụt", "../../assets/Img/chimcanhcut.jpeg", null, "Ân Phạm", 732 },
-                    { 9, 4, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cô gái nóng bỏng trong bộ bikini", true, true, false, 299, "Bikini", "../../assets/Img/bikini.jpeg", null, "Ân Phạm", 78 },
+                    { 2, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rừng nhiệt đới với những tán cây xanh mát đang phát triển vào mùa mưa", true, true, false, 0, "Rừng nhiệt đới", "../../assets/Img/rungnhietdoi.jpeg", null, "Ân Phạm", 0 },
+                    { 5, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hoàng hôn đang buông xuống vào buổi chiều trông thật đẹp", true, true, false, 0, "Hoàng hôn", "../../assets/Img/hoanghon.jpeg", null, "Ân Phạm", 0 },
+                    { 8, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dòng sông quê em lúc nào cũng mênh mông con nước, cá tôm rất nhiều", true, true, false, 0, "Dòng sông quê em", "../../assets/Img/dongsongqueem.jpeg", null, "Ân Phạm", 0 },
+                    { 10, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vịnh Hạ Long một địa danh là di sản văn hóa và kì quan thiên nhiên của Việt Nam", true, true, false, 0, "Vịnh Hạ Long", "../../assets/Img/vinhhalong.jpeg", null, "Ân Phạm", 0 },
+                    { 11, 1, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vịnh Hạ Long một địa danh là di sản văn hóa và kì quan thiên nhiên của Việt Nam", true, true, false, 0, "Sa mạc Sahara", "../../assets/Img/sahara.jpeg", null, "Ân Phạm", 0 },
+                    { 3, 2, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cô gái miền tây trong chiếc áo bà ba thước tha", true, true, false, 0, "Con gái miền tây", "../../assets/Img/congaimientay.jpeg", null, "Ân Phạm", 0 },
+                    { 1, 3, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chó corgi đang chơi đùa ngoài vườn", true, true, false, 0, "Chó Corgi", "../../assets/Img/chocogri.jpeg", null, "Ân Phạm", 0 },
+                    { 4, 3, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vẻ mặt chú mèo trông ngây thơ khi đòi ăn", true, true, false, 0, "Mèo", "../../assets/Img/meo.jpeg", null, "Ân Phạm", 0 },
+                    { 7, 3, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chim cánh cụt tập trung theo đàn nghỉ mát trên bờ biển", true, true, false, 0, "Chim cánh cụt", "../../assets/Img/chimcanhcut.jpeg", null, "Ân Phạm", 0 },
+                    { 9, 4, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cô gái nóng bỏng trong bộ bikini", true, true, false, 0, "Bikini", "../../assets/Img/bikini.jpeg", null, "Ân Phạm", 0 },
                     { 6, 5, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ảnh thẻ thời học sinh", true, true, false, 0, "Ảnh thẻ", "../../assets/Img/anhthe.jpeg", null, "Ân Phạm", 0 },
-                    { 12, 6, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kim tự tháp một địa danh là di sản văn hóa và kì quan thiên nhiên của Việt Nam", true, true, false, 30, "Kim tự tháp", "../../assets/Img/kimtuthap.jpeg", null, "Ân Phạm", 45 }
+                    { 12, 6, 0, new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kim tự tháp một địa danh là di sản văn hóa và kì quan thiên nhiên của Việt Nam", true, true, false, 0, "Kim tự tháp", "../../assets/Img/kimtuthap.jpeg", null, "Ân Phạm", 0 }
                 });
 
             migrationBuilder.CreateIndex(

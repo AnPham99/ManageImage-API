@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WebManageImage.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20211013180750_v1")]
-    partial class v1
+    [Migration("20211113222147_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -132,8 +132,8 @@ namespace WebManageImage.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -167,11 +167,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 48,
+                            LikeCount = 0,
                             Name = "Chó Corgi",
                             Url = "../../assets/Img/chocogri.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 61
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -183,11 +183,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 24,
+                            LikeCount = 0,
                             Name = "Rừng nhiệt đới",
                             Url = "../../assets/Img/rungnhietdoi.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 36
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -199,27 +199,27 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 46,
+                            LikeCount = 0,
                             Name = "Con gái miền tây",
                             Url = "../../assets/Img/congaimientay.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 55
+                            ViewsCount = 0
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 3,
-                            CommentCount = 5,
+                            CommentCount = 0,
                             DateCreate = new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desciption = "Vẻ mặt chú mèo trông ngây thơ khi đòi ăn",
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 109,
+                            LikeCount = 0,
                             Name = "Mèo",
                             Url = "../../assets/Img/meo.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 111
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -231,11 +231,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 27,
+                            LikeCount = 0,
                             Name = "Hoàng hôn",
                             Url = "../../assets/Img/hoanghon.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 37
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -263,11 +263,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 23,
+                            LikeCount = 0,
                             Name = "Chim cánh cụt",
                             Url = "../../assets/Img/chimcanhcut.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 732
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -279,11 +279,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 54,
+                            LikeCount = 0,
                             Name = "Dòng sông quê em",
                             Url = "../../assets/Img/dongsongqueem.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 77
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -295,11 +295,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 299,
+                            LikeCount = 0,
                             Name = "Bikini",
                             Url = "../../assets/Img/bikini.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 78
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -311,11 +311,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 88,
+                            LikeCount = 0,
                             Name = "Vịnh Hạ Long",
                             Url = "../../assets/Img/vinhhalong.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 134
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -327,11 +327,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 18,
+                            LikeCount = 0,
                             Name = "Sa mạc Sahara",
                             Url = "../../assets/Img/sahara.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 72
+                            ViewsCount = 0
                         },
                         new
                         {
@@ -343,11 +343,11 @@ namespace WebManageImage.Migrations
                             ImageStatus = true,
                             IsApproval = true,
                             IsDeny = false,
-                            LikeCount = 30,
+                            LikeCount = 0,
                             Name = "Kim tự tháp",
                             Url = "../../assets/Img/kimtuthap.jpeg",
                             UserName = "Ân Phạm",
-                            ViewsCount = 45
+                            ViewsCount = 0
                         });
                 });
 
@@ -381,6 +381,10 @@ namespace WebManageImage.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -389,10 +393,14 @@ namespace WebManageImage.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -407,6 +415,11 @@ namespace WebManageImage.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -469,15 +482,15 @@ namespace WebManageImage.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "42ba2992-fd4e-4114-89f7-44b498f0541e",
-                            ConcurrencyStamp = "fbe6d1f8-b41a-4b02-a53e-7d79bde09403",
+                            Id = "6923ad75-eda2-4e83-ac05-57f8a4a511b4",
+                            ConcurrencyStamp = "11047f1c-9fb8-4452-96c3-8fc2ad9c1d3e",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "9c5e84c1-bcbc-4df8-9eda-124620b0e26a",
-                            ConcurrencyStamp = "dd3a3005-6680-4a08-954c-62d8b86d85ef",
+                            Id = "63620d8f-3263-4c1f-a9c2-beb8fe9ce25a",
+                            ConcurrencyStamp = "beafcf59-5029-44ad-98b4-4d9c74c921e9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

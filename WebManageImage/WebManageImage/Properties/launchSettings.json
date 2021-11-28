@@ -20,7 +20,7 @@
     "WebManageImage": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "https://localhost:5001/api/images",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

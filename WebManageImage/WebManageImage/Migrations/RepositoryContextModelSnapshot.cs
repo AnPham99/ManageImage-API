@@ -379,6 +379,10 @@ namespace WebManageImage.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -409,6 +413,11 @@ namespace WebManageImage.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -471,15 +480,15 @@ namespace WebManageImage.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c1939d10-e0fc-4aa3-91d5-fe3b9d88129b",
-                            ConcurrencyStamp = "e18a0e6d-6b68-4a14-aea3-dc2b4384041c",
+                            Id = "6923ad75-eda2-4e83-ac05-57f8a4a511b4",
+                            ConcurrencyStamp = "11047f1c-9fb8-4452-96c3-8fc2ad9c1d3e",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a5e98a89-68a1-49de-819f-0f97b11a064d",
-                            ConcurrencyStamp = "d017360c-0812-49aa-9985-422271ac2897",
+                            Id = "63620d8f-3263-4c1f-a9c2-beb8fe9ce25a",
+                            ConcurrencyStamp = "beafcf59-5029-44ad-98b4-4d9c74c921e9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

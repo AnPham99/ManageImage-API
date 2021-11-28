@@ -34,8 +34,8 @@ namespace WebManageImage.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
-            if (userForRegistration.Password != userForRegistration.ConfirmPassword)
-                ModelState.AddModelError("ConfirmPassword", "Mật khẩu nhập lại chưa chính xác");
+            /*if (userForRegistration.Password != userForRegistration.ConfirmPassword)
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu nhập lại chưa chính xác");*/
             var _user = await _userManager.FindByNameAsync(userForRegistration.UserName);
             if (_user != null)
                 ModelState.AddModelError("UserName", "Tên người dùng đã tồn tại");
@@ -52,6 +52,12 @@ namespace WebManageImage.Controllers
                 }
                 return BadRequest(ModelState);
             }
+            if (userForRegistration.Password != userForRegistration.ConfirmPassword)
+            {
+                ModelState.AddModelError("ConfirmPassword", "Mật khẩu nhập lại chưa chính xác");
+                return BadRequest(ModelState);
+            }
+
             await _userManager.AddToRolesAsync(user, userForRegistration.Roles);
             return StatusCode(201);
         }
